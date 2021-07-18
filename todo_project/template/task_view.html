@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block body %}
+
+
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        <input type="text" name="name" placeholder="name"><br><br>-->
+<!--        <input type="text" name="priority" placeholder="priority"><br><br>-->
+
+<!--    <input type="submit" class="btn btn-success">-->
+<!--</form>-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h1>TODO</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+ <div class="row">
+     <div class="col-md-6">
+            <h4>Add Task</h4>
+    <form method="post" class="p-3 shadow card">
+    {% csrf_token %}
+     <div class="form-group">
+
+    <input type="text" class="form-control" name="name" placeholder="Task name">
+
+     </div>
+     <div class="form-group">
+
+      <input type="text" class="form-control" name="priority" placeholder="Priority">
+      </div>
+       <div class="form-group">
+
+      <input type="date" class="form-control" name="date" placeholder="Task Date">
+      </div>
+
+      <input type="submit" class="btn btn-success">
+
+
+</form>
+ </div>
+
+<div class="col-md-6">
+
+    <h4>Task Completed</h4>
+        {% for i in obj1 %}
+        <div class="shadow card">
+
+            <div class="card-body">
+                <h5 class="{{i.name}}">{{i.name}}</h5>
+                <p><b>{{i.priority}}</b></p><br>
+                 <p><b>{{i.date}}</b></p><br>
+
+
+                <a input type="submit" class="btn btn-danger"href="{% url 'delete' i.id %}">DELETE</a>
+                <a input type="submit" class="btn btn-warning"href="{% url 'update' i.id %}">UPDATE</a>
+            </div>
+        </div>
+    {% endfor %}
+     </div>
+
+  </div>
+
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}

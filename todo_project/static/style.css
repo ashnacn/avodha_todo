@@ -1,0 +1,14 @@
+.banner
+{
+background-color:darklategrey;
+width:100%;
+height:50px;
+margin-bottom:50px;
+}
+.banner-test{
+top:50%;
+left:50%;
+position:absolute;
+transform:transalate(-50%,-50%)
+color:white;
+}
